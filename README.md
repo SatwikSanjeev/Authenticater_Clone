@@ -24,6 +24,6 @@ It allows users to generate a QR code, scan it with any authenticator app, and v
 ## 🚀 Installation
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/your-username/authenticator-app.git
+git clone https://github.com/SatwikSanjeev/Authenticater_Clone.git
 cd authenticator-app
 pip install -r requirements.txt
