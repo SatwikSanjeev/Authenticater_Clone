@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TOTP Authenticator</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script>
+    let remaining = "{{ remaining }}";
+    console.log("The value of remaining is : ",remaining);
+    
+    let otp = "{{ otp }}";
+
+    function updateTimer() {
+      const timer = document.getElementById("timer");
+      if (remaining <= 0) {
+        // Refresh page exactly when countdown ends
+        location.reload();
+      } else {
+        timer.textContent = "⏳ Valid for " + remaining + " seconds";
+        remaining--;
+      }
+    }
+
+    setInterval(updateTimer, 1000);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 TOTP Authenticator</h1>
+    <h2>OTP: {{ otp }}</h2>
+    <p id="timer">⏳ Valid for {{ remaining }} seconds</p>
+    <h3>📷 Scan this QR in your mobile authenticator:</h3>
+    <img src="data:image/png;base64,{{ qr }}" />
+  </div>
+</body>
+</html>
